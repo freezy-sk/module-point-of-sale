@@ -1,0 +1,22 @@
+{
+  "name": "marekviger/module-point-of-sale",
+  "type": "magento2-module",
+  "description": "Point Of Sale module",
+  "license": [
+    "proprietary"
+  ],
+  "require": {
+    "magento/framework": "*"
+  },
+  "suggest": {
+    "marekviger/module-point-of-sale-sample-data": "Sample Data version: 1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "MarekViger\\PointOfSale\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

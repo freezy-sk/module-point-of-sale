@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd"
+>
+    <menu>
+        <add id="MarekViger_PointOfSale::pos"
+             title="Points Of Sale"
+             translate="title"
+             module="MarekViger_PointOfSale"
+             parent="Magento_Backend::stores"
+             resource="MarekViger_PointOfSale::pos"
+             sortOrder="100"
+        />
+        <add id="MarekViger_PointOfSale::pos_index"
+             title="All Points Of Sale"
+             translate="title"
+             module="MarekViger_PointOfSale"
+             parent="MarekViger_PointOfSale::pos"
+             resource="MarekViger_PointOfSale::pos_index"
+             sortOrder="10"
+             action="pos/pos/index"
+        />
+    </menu>
+</config>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd"
+>
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">pos_form.pos_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Point Of Sale Form</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <namespace>pos_form</namespace>
+        <dataScope>data.general</dataScope>
+        <deps>
+            <dep>pos_form.pos_form_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="save" class="MarekViger\PointOfSale\Block\Form\Pos\Save"/>
+            <button name="back" class="MarekViger\PointOfSale\Block\Form\Pos\Back"/>
+            <button name="delete" class="MarekViger\PointOfSale\Block\Form\Pos\Delete"/>
+        </buttons>
+    </settings>
+    <dataSource name="pos_form_data_source" component="Magento_Ui/js/form/provider">
+        <settings>
+            <submitUrl path="pos/pos/save"/>
+        </settings>
+        <dataProvider class="MarekViger\PointOfSale\Ui\DataProvider\PosDataProvider" name="pos_form_data_source">
+            <settings>
+                <requestFieldName>pos_id</requestFieldName>
+                <primaryFieldName>pos_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <label translate="true">General</label>
+        </settings>
+        <field name="pos_id" sortOrder="0" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">pos_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Entity ID</label>
+                <dataScope>pos_id</dataScope>
+            </settings>
+        </field>
+        <field name="name" sortOrder="00" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">name</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+            </settings>
+        </field>
+        <field name="address" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">address</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Address</label>
+                <dataScope>address</dataScope>
+            </settings>
+        </field>
+        <field name="is_available" sortOrder="20" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">is_available</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>bool</dataType>
+                <label translate="true">Is Available</label>
+                <dataScope>is_available</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

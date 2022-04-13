@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd"
+>
+    <route url="/V1/pos/get-list" method="GET">
+        <service class="MarekViger\PointOfSale\Api\GetPosListInterface" method="execute"/>
+        <resources>
+            <resource ref="MarekViger_PointOfSale::pos_index"/>
+        </resources>
+    </route>
+    <route url="/V1/pos/save" method="POST">
+        <service class="MarekViger\PointOfSale\Api\SavePosInterface" method="execute"/>
+        <resources>
+            <resource ref="MarekViger_PointOfSale::pos_index"/>
+        </resources>
+    </route>
+    <route url="/V1/pos/:entityId" method="DELETE">
+        <service class="MarekViger\PointOfSale\Api\DeletePosByIdInterface" method="execute"/>
+        <resources>
+            <resource ref="MarekViger_PointOfSale::pos_index"/>
+        </resources>
+    </route>
+</routes>

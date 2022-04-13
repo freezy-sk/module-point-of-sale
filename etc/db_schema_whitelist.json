@@ -1,0 +1,16 @@
+{
+    "pos": {
+        "column": {
+            "pos_id": true,
+            "name": true,
+            "address": true,
+            "is_available": true
+        },
+        "index": {
+            "POS_POS_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

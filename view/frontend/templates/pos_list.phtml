@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var \MarekViger\PointOfSale\Block\DisplayList $block
+ */
+$posCollection = $block->getPosCollection($block->getData('is_available'));
+?>
+<ul>
+    <?php foreach ($posCollection as $key => $pos) : ?>
+        <li><?= $pos->getName() ?></li>
+    <?php endforeach; ?>
+</ul>

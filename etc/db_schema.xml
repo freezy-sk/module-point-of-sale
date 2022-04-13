@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd"
+>
+    <table name="pos" resource="default" engine="innodb" comment="Pos">
+        <column xsi:type="int" name="pos_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Pos Id Column"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Name Column"/>
+        <column xsi:type="varchar" name="address" nullable="false" length="255" comment="Address Column"/>
+        <column xsi:type="boolean" name="is_available" nullable="false" comment="Is Available Column"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="pos_id"/>
+        </constraint>
+        <index referenceId="POS_POS_ID" indexType="btree">
+            <column name="pos_id"/>
+        </index>
+    </table>
+</schema>
